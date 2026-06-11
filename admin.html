@@ -1,11 +1,15 @@
-<h>Admin Panel</h>
+channelList.innerHTML += `
+<div class="card">
 
-<input id="channelName">
+<h3>${data.name}</h3>
 
-<input id="streamUrl">
+<iframe src="${data.stream}" allowfullscreen></iframe>
 
-<button onclick="addChannel()">
-Add Channel
+<br><br>
+
+<button onclick="deleteChannel('${key}')">
+Delete Channel
 </button>
 
-<hr>
+</div>
+`;
