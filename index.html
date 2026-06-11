@@ -177,8 +177,14 @@ channelList.innerHTML += `
 
 <h3>${data.name}</h3>
 
-<iframe src="${data.stream}" allowfullscreen></iframe>
-
+<iframe
+src="${data.stream}"
+width="100%"
+height="400"
+frameborder="0"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+allowfullscreen>
+</iframe>
 <br><br>
 
 <button onclick="deleteChannel('${key}')">
