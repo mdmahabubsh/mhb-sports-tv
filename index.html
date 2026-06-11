@@ -192,5 +192,19 @@ Delete Channel
 
 </script>
 
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+
+<script>
+const video = document.getElementById("videoPlayer");
+
+if (Hls.isSupported()) {
+  const hls = new Hls();
+  hls.loadSource(data.stream);
+  hls.attachMedia(video);
+} else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+  video.src = data.stream;
+}
+</script>
+
 </body>
 </html>
