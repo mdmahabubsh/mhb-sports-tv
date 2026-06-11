@@ -127,6 +127,15 @@ const app = initializeApp(firebaseConfig);
 
 const db = getDatabase(app);
 
+  window.deleteChannel = function(id){
+
+  if(confirm("Delete this channel?")){
+
+    remove(ref(db,"channels/" + id));
+
+  }
+
+}
 window.addChannel = function(){
 
 const name = document.getElementById("channelName").value;
@@ -161,17 +170,22 @@ channelList.innerHTML="";
 snapshot.forEach((child)=>{
 
 const data=child.val();
+const key = child.key;
 
 channelList.innerHTML += `
-
 <div class="card">
 
 <h3>${data.name}</h3>
 
 <iframe src="${data.stream}" allowfullscreen></iframe>
 
-</div>
+<br><br>
 
+<button onclick="deleteChannel('${key}')">
+Delete Channel
+</button>
+
+</div>
 `;
 
 });
